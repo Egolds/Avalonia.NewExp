@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Avalonia.NewExp.ViewModels"
+        xmlns:bhv="using:Avalonia.NewExp.Core.Behaviors"
+        mc:Ignorable="d"
+        x:Class="Avalonia.NewExp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        bhv:WindowBehaviors.EnableWindowClosing="True"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Main Window"
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto, *">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+      <TextBlock Text="{Binding HelloMessage}" Margin="0,5"/>
+
+      <StackPanel Margin="0,5" Orientation="Horizontal">
+        <Button Content="Close me" Command="{Binding CloseMeCommand}"/>
+        <CheckBox Content="Allow close" IsChecked="{Binding AllowCloseWindow}" VerticalAlignment="Center" Margin="5,0"/>
+      </StackPanel>
+
+      <StackPanel Margin="0,5" Orientation="Horizontal">
+        <Button Content="Go Home View" Command="{Binding GoHomeViewCommand}"/>
+        <Button Content="Go Second View" Command="{Binding GoSecondViewCommand}"/>
+      </StackPanel>
+
+      <Button Content="Open new window" Command="{Binding OpenNewWindowCommand}" CommandParameter="True" Margin="0,5" />
+      <TextBlock Text="{Binding DialogResultText, Mode=TwoWay}"/>
+    </StackPanel>
+
+    <ScrollViewer Grid.Row="1" Margin="5" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+      <Border Background="WhiteSmoke">
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+      </Border>
+    </ScrollViewer>
+  </Grid>
+
+</Window>
