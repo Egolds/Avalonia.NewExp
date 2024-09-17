@@ -1,9 +1,14 @@
-Базовый проект для старта почти любого проекта в Avalonia UI с реализацией MVVM ViewModel First и DependencyInjection.
+# Avalonia MVVM Starter Project
 
-NavigationService - навигация по ViewModel.
+A basic project template for starting almost any Avalonia UI project with MVVM ViewModel-First implementation and Dependency Injection.
 
-ViewModelLocator - упрощенный доступ к инстанциям ViewModel из контейнера.
+## Features
 
-WindowManager - позвояет открывать Window передавая ViewModel в методы Show/ShowDialog.
+- **NavigationService**: Navigation based on ViewModel.
+- **ViewModelLocator**: Simplified access to ViewModel instances from the DI container.
+- **WindowManager**: Allows opening windows by passing a ViewModel to the `Show`/`ShowDialog` methods.
+- **Example of Avalonia AttachedProperty usage** (WindowBehaviors): Demonstrated in the `MainWindow`.
 
-Пример работы с Avalonia AttachedProperty (WindowBehaviors), используется в MainWindow.
+## Getting Started
+
+This project provides a foundational structure for Avalonia-based applications and can be easily extended based on your specific requirements.
