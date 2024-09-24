@@ -3,7 +3,7 @@ using Avalonia.Interactivity;
 
 namespace Avalonia.NewExp.Core.Behaviors
 {
-    public class FocusBehavior : AvaloniaObject
+    public static class FocusBehavior
     {
         static FocusBehavior()
         {
@@ -11,7 +11,7 @@ namespace Avalonia.NewExp.Core.Behaviors
         }
 
         public static readonly AttachedProperty<bool> IsFocusedProperty =
-            AvaloniaProperty.RegisterAttached<FocusBehavior, StyledElement, bool>("IsFocused", false);
+            AvaloniaProperty.RegisterAttached<StyledElement, bool>("IsFocused", typeof(FocusBehavior), false);
 
         public static void SetIsFocused(StyledElement element, bool value) =>
             element.SetValue(IsFocusedProperty, value);

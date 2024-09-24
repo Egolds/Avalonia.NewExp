@@ -4,7 +4,7 @@ using Avalonia.NewExp.Core.Abstractions;
 
 namespace Avalonia.NewExp.Core.Behaviors
 {
-    public class WindowBehaviors : AvaloniaObject
+    public static class WindowBehaviors
     {
         static WindowBehaviors()
         {
@@ -20,7 +20,7 @@ namespace Avalonia.NewExp.Core.Behaviors
         /// indicates ....
         /// </summary>
         public static readonly AttachedProperty<bool> EnableWindowClosingProperty =
-            AvaloniaProperty.RegisterAttached<WindowBehaviors, StyledElement, bool>("EnableWindowClosing", false);
+            AvaloniaProperty.RegisterAttached<StyledElement, bool>("EnableWindowClosing", typeof(WindowBehaviors), false);
 
         /// <summary>
         /// Accessor for Attached property <see cref="EnableWindowClosingProperty"/>.
