@@ -3,6 +3,7 @@ using Avalonia.NewExp.Core.Services;
 using Avalonia.NewExp.ViewModels.Dialogs;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace Avalonia.NewExp.ViewModels
 {
@@ -13,12 +14,19 @@ namespace Avalonia.NewExp.ViewModels
 
         public ObservableObject OwnerWindowViewModel { get; set; }
         public string Greeting => "Welcome to Second view!";
+        public ObservableCollection<string> TestItems { get; }
 
         public SecondViewModel() { }
         public SecondViewModel(IWindowManager windowManager, IViewModelLocator viewModelLocator)
         {
             this.windowManager = windowManager;
             this.viewModelLocator = viewModelLocator;
+
+            TestItems = new ObservableCollection<string>();
+            for (int i = 0; i < 500; i++)
+            {
+                TestItems.Add("Item " + i);
+            }
         }
 
         [RelayCommand]

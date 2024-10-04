@@ -11,9 +11,29 @@
     <vm:HomeViewModel/>
   </Design.DataContext>
   
-  <StackPanel Background="White" Orientation="Vertical">
+  <StackPanel Background="White" Orientation="Vertical" Spacing="10">
     <TextBlock Text="{Binding Greeting}"/>
     <Button Content="Lost Focus" Command="{Binding LostFocusCommand}"/>
     <Button Content="Target button" bhv:FocusBehavior.IsFocused="{Binding IsTargetBtnFocused, Mode=TwoWay}"/>
+    
+    <TabControl Height="300" Background="WhiteSmoke" ItemsSource="{Binding Tabs}">
+      
+      <TabControl.ItemTemplate>
+        <DataTemplate x:DataType="vm:ActionTabViewModel">
+          <Grid ColumnDefinitions="*, Auto">
+            <TextBlock Text="{Binding Title}"/>
+            <TextBlock Grid.Column="1" Text="X"/>
+            <!-- Потом нужно добавить функциональность и стили для кнопки X -->
+          </Grid>
+        </DataTemplate>
+      </TabControl.ItemTemplate>
+      
+      <TabControl.ContentTemplate>
+        <DataTemplate x:DataType="vm:ActionTabViewModel">
+          <ContentControl Content="{Binding Content}"/>
+        </DataTemplate>
+      </TabControl.ContentTemplate>
+    </TabControl>
+    
   </StackPanel>
 </UserControl>

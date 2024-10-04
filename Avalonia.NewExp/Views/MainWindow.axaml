@@ -10,7 +10,7 @@
         bhv:WindowBehaviors.EnableWindowClosing="True"
         Icon="/Assets/avalonia-logo.ico"
         Title="Main Window"
-        Height="450" Width="800"
+        Height="600" Width="800"
         WindowStartupLocation="CenterScreen">
 
   <Design.DataContext>
@@ -36,13 +36,18 @@
 
       <Button Content="Open new window" Command="{Binding OpenNewWindowCommand}" CommandParameter="True" Margin="0,5" />
       <TextBlock Text="{Binding DialogResultText, Mode=TwoWay}"/>
+      
+      <Button Content="Test overlay" Click="btnTestOverlay_Click"/>
+
+      <Border Width="100" Height="50" Margin="30">
+        <Rectangle Fill="Red" />
+      </Border>
+    
     </StackPanel>
 
-    <ScrollViewer Grid.Row="1" Margin="5" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-      <Border Background="WhiteSmoke">
-        <ContentControl Content="{Binding CurrentViewModel}"/>
-      </Border>
-    </ScrollViewer>
+    <Border Background="WhiteSmoke" Grid.Row="1" Margin="5">
+      <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Border>
   </Grid>
 
 </Window>

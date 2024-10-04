@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:aui="using:Avalonia.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Avalonia.NewExp.Views.SecondView"
              xmlns:vm="using:Avalonia.NewExp.ViewModels"
@@ -11,12 +12,25 @@
     <vm:SecondViewModel/>
   </Design.DataContext>
 
-  <Grid Background="White">
+  <Grid Background="White" RowDefinitions="Auto, *">
     <StackPanel>
       <TextBlock Text="{Binding Greeting}"/>
 
       <Button Content="Open new window" Command="{Binding OpenNewWindowCommand}" Margin="0,5" />
     </StackPanel>
+
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+      <aui:ItemsRepeater ItemsSource="{Binding TestItems}">
+        <aui:ItemsRepeater.ItemTemplate>
+          <DataTemplate>
+            <Border Height="150" BoxShadow="5 5 5 5 Gray" Margin="5">
+              <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+            </Border>
+          </DataTemplate>
+        </aui:ItemsRepeater.ItemTemplate>
+      </aui:ItemsRepeater>
+    </ScrollViewer>
+    
   </Grid>
 
 </UserControl>
