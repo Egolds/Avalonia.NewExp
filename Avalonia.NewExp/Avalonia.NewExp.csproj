@@ -22,16 +22,11 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.0" />
     <PackageReference Include="Avalonia.Xaml.Interactivity" Version="11.2.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="Egolds.Avalonia.Xaml.Interactions.Animated" Version="11.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Avalonia.Xaml.Interactions.Animated">
-      <HintPath>..\..\..\repos\Egolds\Avalonia.Xaml.Interactions.Animated\Avalonia.Xaml.Interactions.Animated\bin\Debug\net8.0\Avalonia.Xaml.Interactions.Animated.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>
